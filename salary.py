@@ -32,3 +32,5 @@ plt.title("Sales vs Experience(Test set)")
 plt.xlabel("Experience")
 plt.ylabel("Salary")
 plt.show()
+
+print(regressor.predict([[10]]))
