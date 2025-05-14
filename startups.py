@@ -15,3 +15,4 @@ ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [-1])], remain
 x = np.array(ct.fit_transform(x))
 
 print(x)
+print(y)
