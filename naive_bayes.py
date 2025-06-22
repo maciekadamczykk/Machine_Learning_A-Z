@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv("Social_Network_Ads.csv")
 
-X = df.iloc[:,:-1]
-y = df.iloc[:,-1]
+X = df.iloc[:,:-1].values
+y = df.iloc[:,-1].values
 
 from sklearn.model_selection import train_test_split
 
@@ -16,3 +16,8 @@ from sklearn.naive_bayes import GaussianNB
 classifier = GaussianNB()
 classifier.fit(X_train,y_train)
 
+y_pred = classifier.predict(X_test)
+
+from sklearn.metrics import accuracy_score
+
+print(accuracy_score(y_test,y_pred))

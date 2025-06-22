@@ -35,4 +35,4 @@ plt.xlabel("Experience")
 plt.ylabel("Salary")
 plt.show()
 
-print(regressor.predict([[10]]))33
+print(regressor.predict([[10]]))
