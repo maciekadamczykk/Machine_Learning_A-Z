@@ -27,8 +27,18 @@ for i in range(0,len(df)):
     review = review.lower()
     review = review.split()
     ps = PorterStemmer() 
-    review = [ps.stem(word) for word in review if not word in set(stopwords.words("english"))] 
+    all_stopwords = stopwords.words("english")
+    all_stopwords.remove("not")
+    review = [ps.stem(word) for word in review if not word in set(all_stopwords)] 
     review = ' '.join(review) 
     corpus.append(review)
 
-print(nltk.data.path)
+from sklearn.feature_extraction.text import CountVectorizer
+
+cv = CountVectorizer(max_features=1500)
+
+X = cv.fit_transform(corpus).toarray()
+y = df.iloc[:,-1].to_numpy()
+
+
+print(len(X[0]))
