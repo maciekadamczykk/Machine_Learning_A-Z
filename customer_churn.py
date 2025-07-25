@@ -24,3 +24,16 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 print(X_train) 
+
+ann = tf.keras.models.Sequential()
+#First layer
+ann.add(tf.keras.layers.Dense(units=8,activation='relu'))
+#Second layer 
+ann.add(tf.keras.layers.Dense(units=8,activation='relu'))
+#Output layer
+ann.add(tf.keras.layers.Dense(units=1,activation='sigmoid'))
+
+ann.compile(optimizer = "adam", loss = "binary_crossentropy", metrics = ["accuracy"])
+
+#Training ann
+ann.fit(X_train,y_train,batch_size = 32, epochs=300)
